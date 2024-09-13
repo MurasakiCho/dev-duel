@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20vh;
+    margin-top: 10vh;
   "
 >
   <div style="display: flex; flex-direction: row">
@@ -18,4 +18,26 @@
   <br />
   <br />
   <button class="submit-button" (click)="onSubmit()">Duel</button>
+</div>
+
+<div style="display: flex; justify-content: center; padding-top: 50px">
+  <h2 style="padding-right: 200px; color: red">WINNER!</h2>
+  <h2 style="padding-left: 200px; color: red">WINNER!</h2>
+</div>
+
+<div
+  style="
+    display: flex;
+    padding-top: 50px;
+    justify-content: center;
+    align-items: center;
+  "
+>
+  <div style="padding-right: 50px">
+    <app-profile></app-profile>
+  </div>
+
+  <div>
+    <app-profile></app-profile>
+  </div>
 </div>

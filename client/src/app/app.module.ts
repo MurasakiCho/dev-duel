@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { TextInputComponent } from './Components/text-input/text-input.component';
 import { UserService } from 'src/user.service';
 import { AttributeComponent } from './Components/attribute/attribute.component';
+import { ProfileComponent } from './Components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { AttributeComponent } from './Components/attribute/attribute.component';
     HomeComponent,
     TextInputComponent,
     AttributeComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
