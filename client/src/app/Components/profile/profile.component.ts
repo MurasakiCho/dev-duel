@@ -9,6 +9,7 @@ export class ProfileComponent implements OnInit {
 
   @Input() imgSrc: string = ""
   @Input() bio: string = ""
+  @Input() attributeValue =""
   
   constructor() { }
 

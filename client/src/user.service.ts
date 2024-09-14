@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Data } from './app/Interfaces/data'
 
 const inspectUserUrl = 'http://localhost:3000/api/user/';
 const duelUsersUrl = 'http://localhost:3000/api/users?';
@@ -8,12 +9,14 @@ const duelUsersUrl = 'http://localhost:3000/api/users?';
   providedIn: 'root'
 })
 export class UserService {
+  stuff: any = [];
 
   constructor(private http: HttpClient) { }
 
   async inspectUser(username = 'andrew') {
     let data = await this.http.get(inspectUserUrl + username).toPromise();
     console.log(data);
+    this.stuff = data;
     return data;
   }
 
