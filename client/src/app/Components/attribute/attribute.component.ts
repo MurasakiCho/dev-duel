@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-attribute',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./attribute.component.css']
 })
 export class AttributeComponent implements OnInit {
+
+  @Input() attributeName = ""
+  @Input() attributeValue =""
 
   constructor() { }
 
