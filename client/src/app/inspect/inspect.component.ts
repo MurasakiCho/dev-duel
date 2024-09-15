@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { response } from 'express';
 import { UserService } from 'src/user.service';
+import { Profile } from '../Interfaces/Profile';
+import { empty } from 'joi';
 
 @Component({
   selector: 'app-inspect',
@@ -10,11 +12,13 @@ import { UserService } from 'src/user.service';
 export class InspectComponent implements OnInit {
 
   username: string = ""
+  public profiles: Profile[] | undefined
 
+  @Input() bio =""
 
   constructor(private userService: UserService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
 
   receiveUsername(valueEmitted: string) {
@@ -22,9 +26,15 @@ export class InspectComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.inspectUser(this.username);
+    if(this.username != ""){
+
+    this.userService.inspectUser(this.username)
+    .subscribe( data => this.profiles = data);
+    console.log(this.profiles)
+
+    } else{
+      alert("Enter a valid username")
+    }
   }
-
-
-
 }
+

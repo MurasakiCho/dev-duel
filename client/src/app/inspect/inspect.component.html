@@ -12,6 +12,24 @@
   <button class="submit-button" (click)="onSubmit()">Inspect</button>
 </div>
 
-<div class="profile-container">
-  <app-profile bio="I build things."></app-profile>
+<div class="container">
+  <div class="profile-container">
+    <div style="display: flex; justify-content: center; align-items: center">
+      <div style="padding-right: 50px">
+        <img
+          src="https://avatars.githubusercontent.com/u/110842239?v=4"
+          id="image"
+          class="pfp"
+        />
+        <h4 class="bio" *ngIf="profiles">{{ profiles[0] }}</h4>
+      </div>
+    </div>
+    <div>
+      <app-attribute
+        *ngFor="let profile of profiles | keyvalue"
+        attributeName="{{ profile.key }}"
+        attributeValue="{{ profile.value }}"
+      ></app-attribute>
+    </div>
+  </div>
 </div>

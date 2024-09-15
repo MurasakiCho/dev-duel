@@ -7,10 +7,9 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  @Input() imgSrc: string = ""
-  @Input() bio: string = ""
-  @Input() attributeValue =""
-  
+  @Input() pfpUrl = ""
+  @Input() bio =""
+
   constructor() { }
 
   ngOnInit(): void {

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Data } from './app/Interfaces/data'
+import { Profile } from './app/Interfaces/Profile'
+import { Observable } from 'rxjs';
 
 const inspectUserUrl = 'http://localhost:3000/api/user/';
 const duelUsersUrl = 'http://localhost:3000/api/users?';
@@ -9,15 +10,17 @@ const duelUsersUrl = 'http://localhost:3000/api/users?';
   providedIn: 'root'
 })
 export class UserService {
-  stuff: any = [];
 
   constructor(private http: HttpClient) { }
 
-  async inspectUser(username = 'andrew') {
-    let data = await this.http.get(inspectUserUrl + username).toPromise();
+  /*async inspectUser(username = 'andrew') {
+    let data = await this.http.get<Profile[]>(inspectUserUrl + username).toPromise();
     console.log(data);
-    this.stuff = data;
     return data;
+  }*/
+
+  inspectUser(username = 'andrew'): Observable<Profile[]> {
+    return this.http.get<Profile[]>(inspectUserUrl + username);
   }
 
   async duelUsers(user1 = 'fabpot', user2 = 'andrew') {
