@@ -29,7 +29,6 @@ export class InspectComponent implements OnInit {
 
     this.userService.inspectUser(this.username)
     .subscribe( data => this.profiles = data);
-    console.log(this.profiles)
 
     } else{
       alert("Enter a valid username")

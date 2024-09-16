@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Profile } from './app/Interfaces/Profile'
-import { Observable } from 'rxjs';
+import { catchError, Observable, of, throwError } from 'rxjs';
 
 const inspectUserUrl = 'http://localhost:3000/api/user/';
 const duelUsersUrl = 'http://localhost:3000/api/users?';
@@ -20,7 +20,10 @@ export class UserService {
   }*/
 
   inspectUser(username = 'andrew'): Observable<Profile> {
-    return this.http.get<Profile>(inspectUserUrl + username);
+    return this.http.get<Profile>(inspectUserUrl + username)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   /*async duelUsers(user1 = 'fabpot', user2 = 'andrew') {
@@ -30,7 +33,20 @@ export class UserService {
   }*/
 
     duelUsers(user1 = 'fabpot', user2 = 'andrew'): Observable<Profile[]> {
-      return this.http.get<Profile[]>(duelUsersUrl + `username=${user1}&username=${user2}`);
+      return this.http.get<Profile[]>(duelUsersUrl + `username=${user1}&username=${user2}`)
+        .pipe(
+          catchError(this.handleError)
+        );
+    }
+
+    private handleError(error: HttpErrorResponse) {
+      if (error.status === 404) {
+        alert("Username not found.");
+      } else {
+        console.error(
+          `Backend returned code ${error.status}, body was: `, error.error);
+      }
+      return throwError (() => new Error('Something went wrong.'));
     }
 
 }
