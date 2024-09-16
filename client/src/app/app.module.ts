@@ -11,7 +11,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { TextInputComponent } from './Components/text-input/text-input.component';
 import { UserService } from 'src/user.service';
-import { AttributeComponent } from './Components/attribute/attribute.component';
 import { ProfileComponent } from './Components/profile/profile.component';
 
 @NgModule({
@@ -23,7 +22,6 @@ import { ProfileComponent } from './Components/profile/profile.component';
     LinkButtonComponent,
     HomeComponent,
     TextInputComponent,
-    AttributeComponent,
     ProfileComponent,
   ],
   imports: [

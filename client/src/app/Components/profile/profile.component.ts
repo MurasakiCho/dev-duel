@@ -9,6 +9,17 @@ export class ProfileComponent implements OnInit {
 
   @Input() pfpUrl = ""
   @Input() bio =""
+  @Input() username = ""
+  @Input() name =""
+  @Input() location=""
+  @Input() titles=""
+  @Input() favorite_language=""
+  @Input() public_repos=""
+  @Input() perfect_repos=""
+  @Input() total_stars=""
+  @Input() highest_starred=""
+  @Input() followers=""
+  @Input() following=""
 
   constructor() { }
 

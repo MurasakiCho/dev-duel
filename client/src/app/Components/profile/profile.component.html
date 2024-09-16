@@ -1,10 +1,61 @@
-<div style="display: flex; justify-content: center; align-items: center">
-  <div style="padding-right: 50px">
-    <img
-      src="https://avatars.githubusercontent.com/u/110842239?v=4"
-      id="image"
-      class="pfp"
-    />
-    <h4 class="bio"></h4>
+<div class="container">
+  <div class="profile-container">
+    <div style="display: flex; justify-content: center; align-items: center">
+      <div style="padding-right: 50px">
+        <div
+          style="display: flex; justify-content: center; align-items: center"
+        >
+          <img src="{{ pfpUrl }}" id="image" class="pfp" />
+        </div>
+        <h4 class="bio">{{ bio }}</h4>
+      </div>
+    </div>
+
+    <div>
+      <div class="attribute-div">
+        <h4 class="attribute-name">Username</h4>
+        <h4 class="attribute-value">{{ username }}</h4>
+      </div>
+      <div class="attribute-div">
+        <h4 class="attribute-name">Name</h4>
+        <h4 class="attribute-value">{{ name }}</h4>
+      </div>
+      <div class="attribute-div">
+        <h4 class="attribute-name">Location</h4>
+        <h4 class="attribute-value">{{ location }}</h4>
+      </div>
+      <div class="attribute-div">
+        <h4 class="attribute-name">Titles</h4>
+        <h4 class="attribute-value">{{ titles }}</h4>
+      </div>
+      <div class="attribute-div">
+        <h4 class="attribute-name">Favorite Language</h4>
+        <h4 class="attribute-value">{{ favorite_language }}</h4>
+      </div>
+      <div class="attribute-div">
+        <h4 class="attribute-name">Public Repos</h4>
+        <h4 class="attribute-value">{{ public_repos }}</h4>
+      </div>
+      <div class="attribute-div">
+        <h4 class="attribute-name">Perfect Repos</h4>
+        <h4 class="attribute-value">{{ perfect_repos }}</h4>
+      </div>
+      <div class="attribute-div">
+        <h4 class="attribute-name">Total Stars</h4>
+        <h4 class="attribute-value">{{ total_stars }}</h4>
+      </div>
+      <div class="attribute-div">
+        <h4 class="attribute-name">Highest Starred</h4>
+        <h4 class="attribute-value">{{ highest_starred }}</h4>
+      </div>
+      <div class="attribute-div">
+        <h4 class="attribute-name">Followers</h4>
+        <h4 class="attribute-value">{{ followers }}</h4>
+      </div>
+      <div class="attribute-div">
+        <h4 class="attribute-name">Following</h4>
+        <h4 class="attribute-value">{{ following }}</h4>
+      </div>
+    </div>
   </div>
 </div>

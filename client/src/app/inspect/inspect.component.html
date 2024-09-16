@@ -12,24 +12,19 @@
   <button class="submit-button" (click)="onSubmit()">Inspect</button>
 </div>
 
-<div class="container">
-  <div class="profile-container">
-    <div style="display: flex; justify-content: center; align-items: center">
-      <div style="padding-right: 50px">
-        <img
-          src="https://avatars.githubusercontent.com/u/110842239?v=4"
-          id="image"
-          class="pfp"
-        />
-        <h4 class="bio" *ngIf="profiles">{{ profiles[0] }}</h4>
-      </div>
-    </div>
-    <div>
-      <app-attribute
-        *ngFor="let profile of profiles | keyvalue"
-        attributeName="{{ profile.key }}"
-        attributeValue="{{ profile.value }}"
-      ></app-attribute>
-    </div>
-  </div>
-</div>
+<app-profile
+  *ngIf="profiles"
+  pfpUrl="{{ profiles.avatar_url }}"
+  bio="{{ profiles.bio }}"
+  username="{{ profiles.username }}"
+  name="{{ profiles.name }}"
+  location="{{ profiles.location }}"
+  titles="{{ profiles.titles }}"
+  favorite_language="{{ profiles['favorite-language'] }}"
+  public_repos="{{ profiles['public-repos'] }}"
+  perfect_repos="{{ profiles['perfect-repos'] }}"
+  total_stars="{{ profiles['total-stars'] }}"
+  highest_starred="{{ profiles['highest-starred'] }}"
+  followers="{{ profiles.followers }}"
+  following="{{ profiles.following }}"
+></app-profile>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/user.service';
+import { Profile } from '../Interfaces/Profile';
+import { number } from 'joi';
 
 @Component({
   selector: 'app-duel',
@@ -9,6 +11,8 @@ import { UserService } from 'src/user.service';
 export class DuelComponent implements OnInit {
   usernameOne: string = ""
   usernameTwo: string = ""
+
+  profiles: Profile[] = [];
 
   constructor(private userService: UserService) { }
 
@@ -24,6 +28,14 @@ export class DuelComponent implements OnInit {
   }
 
   onSubmit() {
-    this.userService.duelUsers(this.usernameOne, this.usernameTwo);
+    if(this.usernameOne !="" && this.usernameTwo != ""){
+    this.userService.duelUsers(this.usernameOne, this.usernameTwo)
+      .subscribe((profiles) => {
+        this.profiles = profiles
+      })
+    } else{
+      alert("Enter a valid username")
+    }
+    
   }
 }

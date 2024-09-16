@@ -12,13 +12,12 @@ import { empty } from 'joi';
 export class InspectComponent implements OnInit {
 
   username: string = ""
-  public profiles: Profile[] | undefined
-
-  @Input() bio =""
+  public profiles: Profile | undefined
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+
   }
 
   receiveUsername(valueEmitted: string) {

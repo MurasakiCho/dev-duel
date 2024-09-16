@@ -20,24 +20,69 @@
   <button class="submit-button" (click)="onSubmit()">Duel</button>
 </div>
 
-<div style="display: flex; justify-content: center; padding-top: 50px">
-  <h2 style="padding-right: 200px; color: red">WINNER!</h2>
-  <h2 style="padding-left: 200px; color: red">WINNER!</h2>
+<div style="justify-content: center; align-items: center; display: flex">
+  <h4>Highest Perfect Repositories</h4>
 </div>
 
-<div
-  style="
-    display: flex;
-    padding-top: 50px;
-    justify-content: center;
-    align-items: center;
-  "
->
+<div style="display: flex; padding-top: 50px; justify-content: center">
+  <h2
+    style="color: red; padding-right: 650px"
+    *ngIf="profiles[0]['perfect-repos'] > profiles[1]['perfect-repos']"
+  >
+    WINNER!
+  </h2>
+
+  <h2
+    style="color: red; text-align: center"
+    *ngIf="profiles[1]['perfect-repos'] === profiles[0]['perfect-repos']"
+  >
+    TIE!
+  </h2>
+
+  <h2
+    style="color: red; padding-left: 650px"
+    *ngIf="profiles[1]['perfect-repos'] > profiles[0]['perfect-repos']"
+  >
+    WINNER!
+  </h2>
+</div>
+
+<div style="display: flex; justify-content: center; align-items: center">
   <div style="padding-right: 50px">
-    <app-profile></app-profile>
+    <app-profile
+      *ngIf="profiles"
+      pfpUrl="{{ profiles[0].avatar_url }}"
+      bio="{{ profiles[0].bio }}"
+      username="{{ profiles[0].username }}"
+      name="{{ profiles[0].name }}"
+      location="{{ profiles[0].location }}"
+      titles="{{ profiles[0].titles }}"
+      favorite_language="{{ profiles[0]['favorite-language'] }}"
+      public_repos="{{ profiles[0]['public-repos'] }}"
+      perfect_repos="{{ profiles[0]['perfect-repos'] }}"
+      total_stars="{{ profiles[0]['total-stars'] }}"
+      highest_starred="{{ profiles[0]['highest-starred'] }}"
+      followers="{{ profiles[0].followers }}"
+      following="{{ profiles[0].following }}"
+    ></app-profile>
   </div>
 
   <div>
-    <app-profile></app-profile>
+    <app-profile
+      *ngIf="profiles"
+      pfpUrl="{{ profiles[1].avatar_url }}"
+      bio="{{ profiles[1].bio }}"
+      username="{{ profiles[1].username }}"
+      name="{{ profiles[1].name }}"
+      location="{{ profiles[1].location }}"
+      titles="{{ profiles[1].titles }}"
+      favorite_language="{{ profiles[1]['favorite-language'] }}"
+      public_repos="{{ profiles[1]['public-repos'] }}"
+      perfect_repos="{{ profiles[1]['perfect-repos'] }}"
+      total_stars="{{ profiles[1]['total-stars'] }}"
+      highest_starred="{{ profiles[1]['highest-starred'] }}"
+      followers="{{ profiles[1].followers }}"
+      following="{{ profiles[1].following }}"
+    ></app-profile>
   </div>
 </div>
